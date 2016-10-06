@@ -1,24 +1,27 @@
-require 'oystercard'
-require 'journey'
-require 'station'
-require 'journey_log'
-
-describe Journey_log do
-
-  subject(:journey) {described_class.new}
-  (:journey).to respond_to(:store_card_history)
-
-  let(:card)     {double :oystercard}
-  let(:mudchute) {double :station}
-  let(:bank)     {double :station}
-  let(:journey)    {double :journey}
+# require 'journey_log'
+#
+# describe Journey_log do
+#
+#   subject(:journey_log) {described_class.new}
+#
+#
+# end
 
 
-  it 'is capable of storing card history' do
-  allow(journey).to receive(:current_journey).and_return({entry_station: mudchute, exit_station: bank})
-  expect(subject.store_card_history).to include [{entry_station: mudchute, exit_station: bank}]
-  end
 
-end
 
-#git push test again
+#   let(:card)     {double :oystercard, card_history: [{entry_station: mudchute, exit_station: bank}] }
+#   let(:mudchute) {double :station}
+#   let(:bank)     {double :station}
+#   let(:journey)    {double :journey, current_journey: {entry_station: mudchute, exit_station: bank} }
+#
+#
+#
+#   it 'is capable of storing card history' do
+#   subject.store_card_history
+#   expect(subject.test_array).to eq 7
+#   end
+#
+# end
+#
+# #git push test again

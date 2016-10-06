@@ -5,6 +5,7 @@ describe Journey do
   let(:card) {double :oystercard}
   let(:mudchute) {double :station}
   let(:bank) {double :station}
+  # let(journey_log) {double :journey_log, log_journey_to_card_history: }
 
   it 'starting journey registers the card is in journey' do
     subject.start_journey(mudchute)

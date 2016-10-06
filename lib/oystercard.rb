@@ -27,10 +27,8 @@ class Oystercard
     fail "Insufficient funds for journey" if @balance < MINIMUM_BALANCE
     if @journey.in_journey == true
       deduct(@journey.fare)
-      @journey.start_journey(station)
-    else
-      @journey.start_journey(station)
     end
+      @journey.start_journey(station)
   end
 
   def touch_out(station)
@@ -40,7 +38,7 @@ class Oystercard
     else
       @journey.finish_journey(station)
       deduct(@journey.fare)
-      @journey_log.store_card_history
+      @journey.create_journey
       @journey.clear_current_journey
     end
   end

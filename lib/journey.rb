@@ -44,7 +44,7 @@ attr_accessor :entry_station, :exit_station
     @exit_station = nil
   end
 
-  def incomplete_journey
+  def incomplete_journey?
     @in_journey
   end
 
