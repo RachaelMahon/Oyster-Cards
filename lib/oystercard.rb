@@ -1,9 +1,11 @@
 require_relative 'station'
+require_relative 'journey'
+require_relative 'journey_log'
 
 class Oystercard
 
-  attr_reader :balance, :current_journey,
-              :card_history
+  attr_reader :balance, :current_journey
+  attr_accessor :card_history
 
   MONEY_LIMIT = 90
   MINIMUM_BALANCE = 1
@@ -38,7 +40,7 @@ class Oystercard
     else
       @journey.finish_journey(station)
       deduct(@journey.fare)
-      @card_history << @journey.current_journey
+      @journey_log.store_card_history
       @journey.clear_current_journey
     end
   end
